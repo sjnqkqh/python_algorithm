@@ -1,13 +1,10 @@
-a,b,c = map(int, input().split())
+a, b, c = map(int, input().split())
 
-count, height  = 0;
+rest = (c - a) % (a - b)
+result = (c - a) // (a - b)
+if rest == 0:
+    result = result + 1
+else:
+    result = result + 2
 
-while(height < c)
-    height = height + a
-    count = count +1
-    
-    if (height >= c){
-        print(coount)
-        break
-    
-}
+print(result)
