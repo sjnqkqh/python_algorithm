@@ -18,8 +18,10 @@ def bfs(graph, start):
                 link_count += 1
                 break
 
-        if link_count == 5:
-            print("worvkt")
+    if link_count == 5:
+        return 1
+    else:
+        return 0
 
 
 n, m = map(int, input().split())
@@ -30,6 +32,6 @@ for _ in range(m):
     graph[a].append(b)
     graph[b].append(a)
 
-bfs(graph, 0)
+print(bfs(graph, 0))
 
 # 2 7 4 3 5
