@@ -19,7 +19,8 @@ def dfs(graph: list, idx, link_cnt, passed: list):
         if item not in passed:
             link_cnt += 1
             passed.append(item)
-            dfs(graph, item, link_cnt + 1, passed)
+            if dfs(graph, item, link_cnt + 1, passed):
+                return False
 
     return False
 
