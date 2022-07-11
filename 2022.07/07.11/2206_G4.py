@@ -37,19 +37,22 @@ def bfs():
                             graph[next_i][next_j][0] = graph[i][j][0] + 1
                             visited[next_i][next_j][0] = True
                             queue.append([next_i, next_j, not_crashed_yet])
-
-                        if not visited[next_i][next_j][1]:
-                            graph[next_i][next_j][1] = graph[i][j][1] + 1
-                            visited[next_i][next_j][1] = True
-                            queue.append([next_i, next_j, False])
-
-                    else:
-                        if not visited[next_i][next_j][1] and not_crashed_yet:
-                            graph[next_i][next_j][1] = graph[i][j][1] + 1
-                            visited[next_i][next_j][1] = True
-                            queue.append([next_i, next_j, False])
+                    #
+                    #     if not visited[next_i][next_j][1]:
+                    #         graph[next_i][next_j][1] = graph[i][j][0] + 1
+                    #         visited[next_i][next_j][1] = True
+                    #         queue.append([next_i, next_j, True])
+                    #
+                    # else:
+                    #     if not visited[next_i][next_j][1] and not_crashed_yet:
+                    #         graph[next_i][next_j][1] = graph[i][j][1] + 1
+                    #         visited[next_i][next_j][1] = True
+                    #         queue.append([next_i, next_j, False])
 
     result = min(graph[N - 1][M - 1][0], graph[N - 1][M - 1][1]) if visited[N - 1][M - 1][0] or visited[N - 1][M - 1][1] else -1
+    for item in graph:
+        print(item)
+
     print(result)
 
 
