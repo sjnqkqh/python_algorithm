@@ -39,6 +39,7 @@ def bfs():
                         visited[next_i][next_j][1] = visited[i][j][wall] + 1
                         queue.append([next_i, next_j, 1])
 
+    return -1
 
-result = bfs()
-print(result if result is not None else -1)
+
+print(bfs())
