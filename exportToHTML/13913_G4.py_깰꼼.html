@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>13913_G4.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #808080;}
+.s3 { color: #6897bb;}
+.s4 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+13913_G4.py</font>
+</center></td></tr></table>
+<pre><span class="s0">from </span><span class="s1">collections </span><span class="s0">import </span><span class="s1">deque</span>
+
+<span class="s1">N</span><span class="s0">, </span><span class="s1">K = map(int</span><span class="s0">, </span><span class="s1">input().split()) </span><span class="s2"># 데이터 입력</span>
+<span class="s1">Length = </span><span class="s3">100001 </span><span class="s2"># 배열 총 길이</span>
+<span class="s1">arr = [-</span><span class="s3">1 </span><span class="s0">for </span><span class="s1">_ </span><span class="s0">in </span><span class="s1">range(Length)]</span>
+
+<span class="s1">arr[N] = </span><span class="s3">0 </span><span class="s2"># 탐색 시작 위치</span>
+<span class="s1">log = {}  </span><span class="s2"># 이동 경로 Dictionary</span>
+<span class="s1">result_step = []  </span><span class="s2"># 총 이동 경로 List</span>
+
+
+<span class="s2"># BFS 탐색</span>
+<span class="s0">def </span><span class="s1">bfs(search_start):</span>
+    <span class="s1">queue = deque()</span>
+    <span class="s1">queue.append((search_start</span><span class="s0">, </span><span class="s3">1</span><span class="s1">))</span>
+
+    <span class="s0">while </span><span class="s1">queue:</span>
+        <span class="s2"># Queue의 사이즈 만큼만 반복</span>
+        <span class="s1">size = len(queue)</span>
+        <span class="s0">for </span><span class="s1">_ </span><span class="s0">in </span><span class="s1">range(size):</span>
+            <span class="s1">now</span><span class="s0">, </span><span class="s1">cnt = queue.popleft()</span>
+
+            <span class="s2"># 탐색 중 목표지 도달 시, 최소 이동 횟수 반환</span>
+            <span class="s0">if </span><span class="s1">now == K:</span>
+                <span class="s0">return </span><span class="s1">cnt</span>
+
+            <span class="s2"># Node 이동 가능 범위에 따라 다음 탐색 인덱스 추가 및, Dict 에 경로 저장</span>
+            <span class="s0">if </span><span class="s3">0 </span><span class="s1">&lt;= now + </span><span class="s3">1 </span><span class="s1">&lt; Length </span><span class="s0">and </span><span class="s1">arr[now + </span><span class="s3">1</span><span class="s1">] == -</span><span class="s3">1</span><span class="s1">:</span>
+                <span class="s1">arr[now + </span><span class="s3">1</span><span class="s1">] = cnt</span>
+                <span class="s1">queue.append((now + </span><span class="s3">1</span><span class="s0">, </span><span class="s1">cnt + </span><span class="s3">1</span><span class="s1">))</span>
+                <span class="s1">log[now + </span><span class="s3">1</span><span class="s1">] = now</span>
+
+            <span class="s0">if </span><span class="s3">0 </span><span class="s1">&lt;= now - </span><span class="s3">1 </span><span class="s1">&lt; Length </span><span class="s0">and </span><span class="s1">arr[now - </span><span class="s3">1</span><span class="s1">] == -</span><span class="s3">1</span><span class="s1">:</span>
+                <span class="s1">arr[now - </span><span class="s3">1</span><span class="s1">] = cnt</span>
+                <span class="s1">queue.append((now - </span><span class="s3">1</span><span class="s0">, </span><span class="s1">cnt + </span><span class="s3">1</span><span class="s1">))</span>
+                <span class="s1">log[now - </span><span class="s3">1</span><span class="s1">] = now</span>
+
+            <span class="s0">if </span><span class="s3">0 </span><span class="s1">&lt;= now * </span><span class="s3">2 </span><span class="s1">&lt; Length </span><span class="s0">and </span><span class="s1">arr[now * </span><span class="s3">2</span><span class="s1">] == -</span><span class="s3">1</span><span class="s1">:</span>
+                <span class="s1">arr[now * </span><span class="s3">2</span><span class="s1">] = cnt</span>
+                <span class="s1">queue.append((now * </span><span class="s3">2</span><span class="s0">, </span><span class="s1">cnt + </span><span class="s3">1</span><span class="s1">))</span>
+                <span class="s1">log[now * </span><span class="s3">2</span><span class="s1">] = now</span>
+
+
+<span class="s2"># BFS 탐색</span>
+<span class="s1">result = bfs(N) - </span><span class="s3">1</span>
+
+<span class="s2"># K부터 N까지 경로 Dictionary 를 탐색해, 역으로 경로 탐색</span>
+<span class="s1">start = K</span>
+<span class="s0">while True</span><span class="s1">:</span>
+    <span class="s1">result_step.append(start)</span>
+    <span class="s0">if </span><span class="s1">start == N:</span>
+        <span class="s0">break</span>
+    <span class="s1">start = log[start]</span>
+
+<span class="s2"># 배열 반전</span>
+<span class="s1">result_step.reverse()</span>
+
+<span class="s2"># 답안 출력</span>
+<span class="s1">print(result)  </span><span class="s2"># 최소 이동횟수</span>
+<span class="s1">print(*result_step</span><span class="s0">, </span><span class="s1">sep=</span><span class="s4">&quot; &quot;</span><span class="s1">)  </span><span class="s2"># 최소 이동 경로</span>
+</pre>
+</body>
+</html>

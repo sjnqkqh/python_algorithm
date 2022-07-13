@@ -28,14 +28,17 @@ def bfs(start):
             if 0 <= now + 1 < Length and arr[now + 1] == -1:
                 arr[now + 1] = cnt
                 queue.append((now + 1, cnt + 1))
+                log[now + 1] = now
 
             if 0 <= now - 1 < Length and arr[now - 1] == -1:
                 arr[now - 1] = cnt
                 queue.append((now - 1, cnt + 1))
+                log[now - 1] = now
 
             if 0 <= now * 2 < Length and arr[now * 2] == -1:
                 arr[now * 2] = cnt
                 queue.append((now * 2, cnt + 1))
+                log[now * 2] = now
 
 
 # def tracking_dfs(start, depth, visited, log: list):
@@ -97,7 +100,17 @@ def bfs(start):
 #
 #         step -= 1
 
-
-depth = bfs(N)-1
+log = {}
+depth = bfs(N) - 1
 print(depth)  # 최소 이동횟수
-# tracking_bfs()  # 최소 이동 경로
+
+start = K
+resultStep = []
+while True:
+    resultStep.append(start)
+    if start == N:
+        break
+    start = log[start]
+
+resultStep.reverse()
+print(*resultStep, sep=" ")
