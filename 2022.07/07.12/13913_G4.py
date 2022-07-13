@@ -59,36 +59,45 @@ def bfs(start):
 #     if 0 <= start + 1 < Length and depth - 2 == arr[start + 1] and not visited[start-1]:
 #         tracking_dfs(start + 1, depth - 1, visited, log)
 #         return
+#
+# def tracking_bfs():
+#     visited = [False for _ in range(Length)]
+#     queue = deque()
+#     queue.append(K)
+#     step = depth
+#     log = [K]
+#
+#     while queue:
+#         size = len(queue)
+#
+#         for _ in range(size):
+#             point = queue.popleft()
+#
+#             if step == 0:
+#                 print(*log, sep=" ")
+#                 return
+#
+#             if 0 <= point // 2 < Length and point % 2 == 0 and arr[point // 2] == step-1 and not visited[point // 2]:
+#                 visited[point // 2] = True
+#                 queue.append(point // 2)
+#                 log.append(point//2)
+#                 break
+#
+#             if 0 <= point - 1 < Length and arr[point - 1] == step-1 and not visited[point - 1]:
+#                 visited[point - 1] = True
+#                 queue.append(point - 1)
+#                 log.append(point -1)
+#                 break
+#
+#             if 0 <= point + 1 < Length and arr[point + 1] == step-1 and not visited[point + 1]:
+#                 visited[point + 1] = True
+#                 queue.append(point + 1)
+#                 log.append(point+1)
+#                 break
+#
+#         step -= 1
 
-def tracking_bfs():
-    visited = [False for _ in range(Length)]
 
-    queue = deque()
-    queue.append((1, N, []))
-
-    while queue:
-        step, point, log = queue.popleft()
-        log: list
-
-        if step == depth:
-            print(log)
-
-        if 0 <= point * 2 < Length and arr[point * 2] == step and not visited[point * 2]:
-            visited[point * 2] = True
-            queue.append((step + 1, point * 2, log.append(point * 2)))
-
-        if 0 <= point - 1 < Length and arr[point - 1] == step and not visited[point - 1]:
-            visited[point - 1] = True
-            queue.append((step + 1, point * 2, log.append(point - 1)))
-
-        if 0 <= point + 1 < Length and arr[point + 1] == step and not visited[point + 1]:
-            visited[point + 1] = True
-            queue.append((step + 1, point * 2, log.append(point + 1)))
-
-        step += 1
-
-
-depth = bfs(N)
-
-print(depth - 1)  # 최소 이동횟수
-tracking_bfs()  # 최소 이동 경로
+depth = bfs(N)-1
+print(depth)  # 최소 이동횟수
+# tracking_bfs()  # 최소 이동 경로
