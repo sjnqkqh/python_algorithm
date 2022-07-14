@@ -12,7 +12,6 @@ def bfs(clip, now):
     cnt = 1
     queue = deque()
     queue.append((clip, now))
-
     while queue:
         size = len(queue)
         for _ in range(size):
@@ -26,13 +25,11 @@ def bfs(clip, now):
             # now - 1 인덱스까지 도달하는 계산 횟수 등록
             if arr[now - 1][clip] > cnt or arr[now - 1][clip] == -1:
                 arr[now - 1][clip] = cnt + 1
-                # print("arr[now({0}) - 1] = cnt:".format(now), cnt)
                 queue.append((clip, now - 1))
 
             # now + clip 인덱스까지 도달하는 계산 횟수 등록
             if now + clip < S + 1 and arr[now + clip][clip] == -1:
                 arr[now + clip][clip] = cnt + 1
-                # print("arr[now({0}) + clip({1})] = cnt:".format(now, clip), cnt)
                 queue.append((clip, now + clip))
 
                 # 클립보드에 now를 복사
