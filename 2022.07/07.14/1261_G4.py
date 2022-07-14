@@ -37,10 +37,12 @@ def one_and_zero_bfs():
                 if arr[next_i][next_j] == 0:
                     visited[next_i][next_j] = True
                     queue.appendleft([next_i, next_j])
+                    break
 
                 else:
                     visited[next_i][next_j] = True
                     queue.append([next_i, next_j])
+                    break
 
 
 one_and_zero_bfs()
