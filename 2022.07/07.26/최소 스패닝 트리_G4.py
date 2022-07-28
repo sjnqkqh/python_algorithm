@@ -37,7 +37,7 @@ while True:
 
     u, v, wt = arr.pop(0)
     if find_parent(u) != find_parent(v):
-        union(u, v)  # 두 개의 간선을 하나의 집합으로 합친다 = 둘의 부모 노드를 통일한다.
+        union(u, v)  # 두 개의 점을 하나의 집합으로 합친다 = 둘의 부모 노드를 통일한다.
         link_count += 1  # 간선의 갯수 증가
         result += wt  # 가중치 계산
 
