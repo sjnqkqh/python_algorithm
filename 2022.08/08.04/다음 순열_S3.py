@@ -4,10 +4,12 @@ N = int(input())
 arr = list(map(int, input().split()))
 result = [0] * len(arr)
 visited = [False] * len(arr)
+flag = False
 
 
-def get_permutation(before, N, M, level):
-    if M == level and before == arr:
+def get_permutation(N, M, level):
+    global flag
+    if M == level and result == arr:
         print(result)
         return
 
@@ -15,8 +17,8 @@ def get_permutation(before, N, M, level):
         if visited[i] is False:
             visited[i] = True
             result[level] = arr[i]
-            get_permutation(copy.deepcopy(result), N, M, level + 1)
+            get_permutation(N, M, level + 1)
             visited[i] = False
 
 
-get_permutation([], N, len(arr), 0)
+get_permutation(N, len(arr), 0)
