@@ -15,14 +15,14 @@ print(pre_list)
 print(post_list)
 LCS = [[0] * (len(pre_list) + 1) for _ in range(len(pre_list) + 1)]
 
-print(LCS)
 
-for i in range(1, len(post_list)):
-    for j in range(i, len(post_list)):
+for i in range(0, len(post_list)):
+    for j in range(0, len(post_list)):
         print(i, j)
         if pre_list[i] == post_list[i]:
             LCS[i][j] = LCS[i - 1][j - 1] + 1
         else:
             LCS[i][j] = max(LCS[i - 1][j], LCS[i][j - 1])
 
-print(LCS)
+for item in LCS:
+    print(item)
