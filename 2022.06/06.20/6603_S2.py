@@ -19,8 +19,8 @@ while True:
 
         for i in range(len(result)):
             for val in result[i]:
-                print(val, end=' ')
-            if i != len(result)-1:
+                print(val, end=" ")
+            if i != len(result) - 1:
                 print()
 
         print()

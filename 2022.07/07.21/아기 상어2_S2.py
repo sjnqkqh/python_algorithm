@@ -3,7 +3,16 @@ from collections import deque
 N, M = map(int, input().split())
 arr = [[0] * M] * N  # 지도
 visited = [[False] * M for _ in range(N)]
-move_arr = [[-1, 0], [-1, -1], [0, -1], [1, -1], [1, 0], [1, 1], [0, 1], [-1, 1]]  # 이동 방향
+move_arr = [
+    [-1, 0],
+    [-1, -1],
+    [0, -1],
+    [1, -1],
+    [1, 0],
+    [1, 1],
+    [0, 1],
+    [-1, 1],
+]  # 이동 방향
 
 for i in range(N):
     arr[i] = list(map(int, input().split()))
@@ -17,7 +26,7 @@ def bfs(i, j):
     queue = deque()
     queue.append([i, j])
 
-    length = 1 # 상어까지의 거리
+    length = 1  # 상어까지의 거리
     while queue:
         size = len(queue)
         for _ in range(size):
@@ -27,7 +36,11 @@ def bfs(i, j):
                 next_i = i + move[0]
                 next_j = j + move[1]
 
-                if 0 <= next_i < N and 0 <= next_j < M and not temp_visited[next_i][next_j]:
+                if (
+                    0 <= next_i < N
+                    and 0 <= next_j < M
+                    and not temp_visited[next_i][next_j]
+                ):
                     if arr[next_i][next_j] == 0:
                         temp_visited[next_i][next_j] = True
                         queue.append([next_i, next_j])

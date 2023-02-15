@@ -15,7 +15,7 @@ def is_prime_number(n):
     if n == 1:
         return False
 
-    for i in range(2, int(n ** 0.5) + 1):
+    for i in range(2, int(n**0.5) + 1):
         if n % i == 0:
             return False
 
@@ -26,7 +26,7 @@ def solution(n, k):
     answer = 0
     converted = str(convert(n, k))
     num_list = []
-    arr = converted.split('0')
+    arr = converted.split("0")
 
     # 소수가 될 수 있는 수들 선별
     for item in arr:

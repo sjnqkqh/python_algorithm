@@ -5,7 +5,7 @@ from collections import deque
 # DFS 탐색 알고리즘
 def dfs(graph: list, v, visited: list):
     visited[v] = True
-    print(v, end=' ')
+    print(v, end=" ")
 
     for i in graph[v]:
         if not visited[i]:
@@ -20,7 +20,7 @@ def bfs(graph, start, visited):
 
     while queue:
         v = queue.popleft()
-        print(v, end=' ')
+        print(v, end=" ")
         for i in graph[v]:
             if not visited[i]:
                 queue.append(i)

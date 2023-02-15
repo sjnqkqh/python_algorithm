@@ -4,11 +4,11 @@ num_dict = dict()
 result = 0
 
 if N % 2 == 0:
-    pre_list = arr[:N // 2]
-    post_list = arr[N // 2:]
+    pre_list = arr[: N // 2]
+    post_list = arr[N // 2 :]
 else:
-    pre_list = arr[:N // 2]
-    post_list = arr[(N // 2) + 1:]
+    pre_list = arr[: N // 2]
+    post_list = arr[(N // 2) + 1 :]
 
 post_list.reverse()
 print(pre_list)

@@ -17,8 +17,7 @@ for val in vals:
         if d[i - val] != INF:
             d[i] = min(d[i], d[i - val] + 1)
 
-if d[n] != INF :
+if d[n] != INF:
     print(d[n])
 else:
     print(-1)
-

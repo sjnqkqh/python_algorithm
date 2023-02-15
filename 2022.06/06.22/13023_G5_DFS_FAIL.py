@@ -1,6 +1,8 @@
 # URL : https://www.acmicpc.net/problem/13023
 import sys
+
 sys.setrecursionlimit(10**6)
+
 
 # DFS 탐색
 def dfs(graph: list, idx, link_cnt, passed: list, finished: list, start):

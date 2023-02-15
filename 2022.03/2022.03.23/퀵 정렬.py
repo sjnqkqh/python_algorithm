@@ -1,5 +1,6 @@
 # Page 168
 
+
 def quick_sort(array, start, end):
     if start >= end:  # 원소가 1개인 경우 종료
         return

@@ -30,5 +30,5 @@ for a in range(1, n + 1):
         if graph[a][b] == INF:
             print("INF")
         else:
-            print(graph[a][b], end=' ')
+            print(graph[a][b], end=" ")
     print()

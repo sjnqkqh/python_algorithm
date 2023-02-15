@@ -9,5 +9,5 @@ result = itertools.product(arr, repeat=m)
 
 for item in result:
     for i in item:
-        print(i, end= ' ')
+        print(i, end=" ")
     print()

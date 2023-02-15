@@ -16,7 +16,7 @@ for i in range(1, m + 1):
         if i % bill == 0:
             d[i] = min(d[i], (d[i - bill] + 1))
 
-if d[m] == INF :
+if d[m] == INF:
     print(-1)
 else:
     print(d[m])

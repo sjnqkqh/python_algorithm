@@ -2,8 +2,8 @@ from collections import deque
 
 M, N = map(int, input().split())
 arr = [[] for _ in range(N)]
-visited = [[False for _ in range(M)] for _ in range(N)] # I, J까지 방문 체크
-result_map = [[0 for _ in range(M)] for _ in range(N)] # I,J까지 이동 거리
+visited = [[False for _ in range(M)] for _ in range(N)]  # I, J까지 방문 체크
+result_map = [[0 for _ in range(M)] for _ in range(N)]  # I,J까지 이동 거리
 move_arr = [[1, 0], [0, 1], [-1, 0], [0, -1]]  # 이동 방향
 
 # 지도 입력

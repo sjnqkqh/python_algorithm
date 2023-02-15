@@ -1,6 +1,6 @@
-n = 'a2'
+n = "a2"
 
-x = ord(list(n)[0]) - ord('a') + 1
+x = ord(list(n)[0]) - ord("a") + 1
 y = int(list(n)[1])
 result = 0
 

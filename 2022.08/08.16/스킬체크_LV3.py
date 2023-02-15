@@ -28,4 +28,4 @@ def solution(jobs):
             time += job[1]
 
 
-print(solution(	[[0, 3], [1, 9], [2, 6]]))
+print(solution([[0, 3], [1, 9], [2, 6]]))

@@ -21,6 +21,5 @@ def is_sorted(param):
 for permutation in permutations:
     if is_sorted(permutation):
         for item in permutation:
-            print(item, end=' ')
+            print(item, end=" ")
         print()
-

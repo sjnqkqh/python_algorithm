@@ -11,7 +11,7 @@ import sys
 from itertools import permutations
 from itertools import combinations
 
-arr = ["A","B","C"]
+arr = ["A", "B", "C"]
 result1 = list(permutations(arr, 2))
 
 print(result1)

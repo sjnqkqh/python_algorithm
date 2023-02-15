@@ -13,8 +13,8 @@ data = [3, 4, 3, 4, 3]
 
 data.sort()
 
-result = 0;
-count = 1;
+result = 0
+count = 1
 biggest_number = data[n - 1]
 second_number = data[n - 2]
 

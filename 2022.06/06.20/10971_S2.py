@@ -3,7 +3,7 @@ import itertools
 
 n = int(input())
 arr = []
-min_length = 1e9  #최소값 초기화
+min_length = 1e9  # 최소값 초기화
 
 # 경로 입력
 for _ in range(n):

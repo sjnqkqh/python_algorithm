@@ -26,4 +26,4 @@ while stack:
             result.appendleft(0)
 
 for item in result:
-    print(item, end=' ')
+    print(item, end=" ")

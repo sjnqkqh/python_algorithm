@@ -11,7 +11,7 @@ for i in range(2, m):
             else:
                 break
 
-arr = arr[n:m+1]
+arr = arr[n : m + 1]
 if 1 in arr:
     arr.remove(1)
 

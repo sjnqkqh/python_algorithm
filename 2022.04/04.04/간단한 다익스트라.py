@@ -26,7 +26,6 @@ for _ in range(m):
 
 # 방문하지 않은 노드 중에서, 가장 최단 거리가 짧은 노드의 번호를 반환
 def get_smallest_node():
-
     min_value = INF
     index = 0  # 최단 거리가 가장 짧은 인덱스
     for i in range(1, n + 1):

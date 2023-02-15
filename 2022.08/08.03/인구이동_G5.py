@@ -29,7 +29,12 @@ def bfs(i, j):
                 next_j = j + move[1]
 
                 # 인접한 두 국가의 인원 차의 절대치가 L이상, R 이하인 경우엔 국경 개방
-                if 0 <= next_i < N and 0 <= next_j < N and not visited[next_i][next_j] and L <= abs(arr[i][j] - arr[next_i][next_j]) <= R:
+                if (
+                    0 <= next_i < N
+                    and 0 <= next_j < N
+                    and not visited[next_i][next_j]
+                    and L <= abs(arr[i][j] - arr[next_i][next_j]) <= R
+                ):
                     total_people = total_people + arr[next_i][next_j]
                     country_cnt += 1
                     contain_point_list.append([next_i, next_j])

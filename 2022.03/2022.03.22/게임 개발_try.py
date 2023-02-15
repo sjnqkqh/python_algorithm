@@ -32,7 +32,12 @@ while 1:
     game_map[x][y] = 2
     result = result + 1
 
-    if game_map[x - 1][y] != 0 and game_map[x + 1][y] != 0 and game_map[x][y + 1] != 0 and game_map[x][y - 1] != 0:
+    if (
+        game_map[x - 1][y] != 0
+        and game_map[x + 1][y] != 0
+        and game_map[x][y + 1] != 0
+        and game_map[x][y - 1] != 0
+    ):
         if d == 0:
             y = y + 1
         elif d == 1:

@@ -17,7 +17,7 @@ def bfs(graph, visited):
     queue = deque([[0, 0]])
     while queue:
         v = queue.popleft()
-        print(v, end=' ')
+        print(v, end=" ")
 
         x = v[0]
         y = v[1]
@@ -27,7 +27,7 @@ def bfs(graph, visited):
 
         for i in range(4):
             distance = visited[x + dx[i]][y + dy[i]]
-            if graph[x + dx[i]][y + dy[i]] == 1 and visited [x + dx[i]][y + dy[i]] == 0:
+            if graph[x + dx[i]][y + dy[i]] == 1 and visited[x + dx[i]][y + dy[i]] == 0:
                 visited[x][y] == distance + 1
                 queue.append([x, y])
 

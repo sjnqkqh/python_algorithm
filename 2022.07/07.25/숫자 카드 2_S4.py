@@ -14,4 +14,4 @@ for item in ownArr:
 
 for item in targetArr:
     val = num_dict.get(item)
-    print(val if val is not None else 0, end=' ')
+    print(val if val is not None else 0, end=" ")

@@ -1,5 +1,6 @@
 # Page 189
 
+
 def binary_search(array, target, start, end):
     if start > end:
         return None

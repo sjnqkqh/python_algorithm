@@ -27,4 +27,3 @@ for i in range(0, 9):
             break
     if finished:
         break
-

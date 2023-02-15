@@ -35,7 +35,7 @@ def bfs(point, visited: list):
 
             for j in range(1, 7):
                 if 0 <= point + j < 101 and not visited[point + j]:
-                    next_idx = point+j
+                    next_idx = point + j
 
                     for snake in snakes:
                         if next_idx == snake[0]:

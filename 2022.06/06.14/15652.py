@@ -20,5 +20,5 @@ for item in result:
 
     if len(answers):
         for answer in answers:
-            print(answer, end=' ')
+            print(answer, end=" ")
         print()

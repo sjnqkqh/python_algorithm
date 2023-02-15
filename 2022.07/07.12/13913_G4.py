@@ -1,10 +1,10 @@
 from collections import deque
 
-N, K = map(int, input().split()) # 데이터 입력
-Length = 100001 # 배열 총 길이
+N, K = map(int, input().split())  # 데이터 입력
+Length = 100001  # 배열 총 길이
 arr = [-1 for _ in range(Length)]
 
-arr[N] = 0 # 탐색 시작 위치
+arr[N] = 0  # 탐색 시작 위치
 log = {}  # 이동 경로 Dictionary
 result_step = []  # 총 이동 경로 List
 

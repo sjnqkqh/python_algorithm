@@ -60,4 +60,3 @@ while True:
         turn_time = 0
 
 print(count)
-

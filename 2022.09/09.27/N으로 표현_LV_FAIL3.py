@@ -11,7 +11,7 @@ def solution(N, number):
 
     # N의 곱으로 표현되는 노드 i에 대해 i/N으로 정의
     for i in range(1, (length // N) + 1):
-        if i*N < length:
+        if i * N < length:
             dp[i * N] = min(dp[i * N], i)
 
     # N과 11, 111...의 곱으로 표현되는 i에 대해 정의
@@ -26,8 +26,8 @@ def solution(N, number):
     # N의 제곱수로 표현되는 i에 대해 N 제곱근으로 정의
     multiple = 2
     while True:
-        if N ** multiple <= length:
-            dp[N ** multiple] = min(dp[N ** multiple], multiple)
+        if N**multiple <= length:
+            dp[N**multiple] = min(dp[N**multiple], multiple)
             multiple += 1
         else:
             break

@@ -42,4 +42,4 @@ set_team_combination([], N // 2, 0, 0)  # 팀 조합 설정
 for simulation_team in team_combine:  # 팀 조합을 순회하며, 가장 낮은 차이를 기록
     result = min(result, calculate_team_score(simulation_team))
 
-print(result) # 정답 출력
+print(result)  # 정답 출력

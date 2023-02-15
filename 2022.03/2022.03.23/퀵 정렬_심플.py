@@ -1,6 +1,7 @@
 # Page 169.
 # 기존 코드보다 약간 성능이 저하되지만 심플한 코드
 
+
 def quick_sort(array):
     if len(array) <= 1:
         return array
@@ -16,9 +17,12 @@ def quick_sort(array):
 array = [5, 7, 9, 0, 3, 1, 6, 2, 4, 8]
 print(quick_sort(array))
 
-array = [('바나나', 2), ('사과', 5), ('당근', 3)]
+array = [("바나나", 2), ("사과", 5), ("당근", 3)]
+
+
 def setting(data):
     return data[1]
+
 
 result = sorted(array, key=setting)
 print(result)

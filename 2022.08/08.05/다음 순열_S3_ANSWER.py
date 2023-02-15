@@ -25,4 +25,3 @@ else:
 
     pre_arr.extend(post_arr)
     print(*pre_arr, sep=" ")
-

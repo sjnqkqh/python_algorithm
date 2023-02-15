@@ -12,6 +12,6 @@ for p in permutations:
         try:
             nextPermutation = permutations.__next__()
             for item in nextPermutation:
-                print(item, end=' ')
+                print(item, end=" ")
         except StopIteration:
             print("-1")

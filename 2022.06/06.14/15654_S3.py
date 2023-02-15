@@ -10,5 +10,5 @@ permutations = itertools.permutations(arr, m)
 
 for permutation in permutations:
     for item in permutation:
-        print(item, end=' ')
+        print(item, end=" ")
     print()

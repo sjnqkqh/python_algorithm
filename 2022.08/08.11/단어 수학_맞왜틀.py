@@ -1,18 +1,18 @@
 N = int(input())
-arr = [''] * N
+arr = [""] * N
 number_arr = []
 
 # Left Padding
 for i in range(N):
     line = list(input())
-    temp = ['' for _ in range(10 - len(line))]
+    temp = ["" for _ in range(10 - len(line))]
     temp.extend(line)
     arr[i] = temp
 
 # 자릿수가 높은 알파벳부터 배열에 삽입
 for i in range(10):
     for j in range(N):
-        if arr[j][i] != '' and arr[j][i] not in number_arr:
+        if arr[j][i] != "" and arr[j][i] not in number_arr:
             number_arr.append(arr[j][i])
 
 # 자릿수가 높은 알파벳부터 큰 수 배정
@@ -24,9 +24,9 @@ for i in range(len(number_arr)):
 # 알파벳을 상응하는 수로 컨버팅하여 계산
 result = 0
 for string in arr:
-    temp = ''
+    temp = ""
     for i in range(len(string)):
-        if string[i] != '':
+        if string[i] != "":
             temp = temp + str(num_dict[string[i]])
 
     result += int(temp)

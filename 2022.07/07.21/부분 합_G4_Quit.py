@@ -6,7 +6,7 @@ min_length = int(1e9)
 queue = deque()
 sum = 0
 
-for i in range(len(arr)+1):
+for i in range(len(arr) + 1):
     while sum >= S:
         min_length = min(min_length, len(queue))
         sum -= queue.popleft()

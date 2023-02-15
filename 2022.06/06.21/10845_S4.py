@@ -10,15 +10,15 @@ for _ in range(n):
 
 for order in arr:
     action = order[0]
-    if action == 'push':
+    if action == "push":
         queue.append(int(order[1]))
-    elif action == 'pop':
+    elif action == "pop":
         print(-1 if len(queue) == 0 else queue.popleft())
-    elif action == 'size':
+    elif action == "size":
         print(len(queue))
-    elif action == 'empty':
+    elif action == "empty":
         print(1 if len(queue) == 0 else 0)
-    elif action == 'front':
+    elif action == "front":
         print(-1 if len(queue) == 0 else queue[0])
-    elif action == 'back':
-        print(-1 if len(queue) == 0 else queue[len(queue)-1])
+    elif action == "back":
+        print(-1 if len(queue) == 0 else queue[len(queue) - 1])

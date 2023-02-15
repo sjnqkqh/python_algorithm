@@ -19,7 +19,7 @@ def bfs(graph, x, y, visited):
                 if graph[x][y] != 0 and not visited[x][y]:
                     queue.append([x, y])
                     visited[x][y] = True
-                    graph[x][y] = graph[v[0]][v[1]]+1
+                    graph[x][y] = graph[v[0]][v[1]] + 1
 
 
 n, m = map(int, input().split())
@@ -31,4 +31,4 @@ for _ in range(n):
 
 bfs(graph, 0, 0, visited)
 
-print(graph[n-1][m-1])
+print(graph[n - 1][m - 1])

@@ -5,7 +5,7 @@ def check(arr):
     stack = []
 
     for item in arr:
-        if item == ')':
+        if item == ")":
             if len(stack) == 0:
                 print("NO")
                 return

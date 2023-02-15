@@ -12,4 +12,4 @@ for _ in range(n):
 
 for arr in array:
     while arr:
-        print(arr.pop(), end=' ')
+        print(arr.pop(), end=" ")

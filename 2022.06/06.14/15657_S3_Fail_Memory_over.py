@@ -25,5 +25,5 @@ arr.clear()
 for product in products:
     if is_sorted(product):
         for item in product:
-            print(item, end=' ')
+            print(item, end=" ")
         print()

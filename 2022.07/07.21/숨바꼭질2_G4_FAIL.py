@@ -36,10 +36,9 @@ for item in arr[K]:
 print(result)
 result2 = 0
 if K % 2 == 0:
-    result2 += (arr[K // 2].count(result - 1))
+    result2 += arr[K // 2].count(result - 1)
 
-result2 += (arr[K - 1].count(result - 1))
-result2 += (arr[K + 1].count(result - 1))
+result2 += arr[K - 1].count(result - 1)
+result2 += arr[K + 1].count(result - 1)
 
 print(result2)
-

@@ -30,7 +30,7 @@ def get_minimum_string(stack: []):
         item = stack[i]
         if item == "(" or item == "[":
             str = item
-            start_idx = i+1
+            start_idx = i + 1
         break
 
     for i in range(start_idx, len(stack)):
@@ -43,7 +43,6 @@ def get_minimum_string(stack: []):
 
     if "(" in arr or "[" in arr:
         get_minimum_string(arr)
-
 
 
 get_minimum_string(stack)

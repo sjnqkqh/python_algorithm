@@ -9,5 +9,5 @@ products.sort()
 
 for product in products:
     for var in product:
-        print(var, end=' ')
+        print(var, end=" ")
     print()

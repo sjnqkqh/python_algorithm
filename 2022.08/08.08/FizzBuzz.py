@@ -14,6 +14,7 @@ import sys
 # The function accepts STRING_ARRAY history as parameter.
 #
 
+
 def slotWheels(history):
     result = 0
     # Write your code here
@@ -31,7 +32,7 @@ def slotWheels(history):
     return result
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     history_count = int(input().strip())
 
     history = []

@@ -1,5 +1,6 @@
 # URL : https://www.acmicpc.net/problem/2667
 
+
 # DFS 탐색
 def dfs(graph: list, x: int, y: int, visited: list):
     if x < 0 or x >= n or y < 0 or y >= n:

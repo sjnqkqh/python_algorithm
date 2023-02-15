@@ -24,4 +24,4 @@ while queue:
         result.append(0)
         stack.append((index, now))
 
-print(*result, sep=' ')
+print(*result, sep=" ")

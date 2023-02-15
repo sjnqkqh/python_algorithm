@@ -8,11 +8,10 @@ from collections import Counter
 # print(data)
 # print(list(data))
 
-counter = Counter(['red', 'blue', 'red', 'green','blue', 'blue'])
+counter = Counter(["red", "blue", "red", "green", "blue", "blue"])
 
-print(counter['blue'])
-print(counter['red'])
+print(counter["blue"])
+print(counter["red"])
 print(counter)
 print(dict(counter))
 print(list(counter))
-

@@ -3,7 +3,7 @@
 
 # n, m 입력
 n, m = map(int, input().split())
-result = 0;
+result = 0
 
 # 2차원 그래프 입력
 graph = []

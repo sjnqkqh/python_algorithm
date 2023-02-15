@@ -24,5 +24,3 @@ def solution(routes):
 
         if len(routes) == 0:
             return answer
-
-

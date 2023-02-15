@@ -34,7 +34,11 @@ def bfs(scale, start_i, start_j, visited: list):
         # 이 시점에서 큐에 있는 데이터들을 모두 확인하며, 잡아먹을 수 있는 좌표 중, Y좌표가 가장 크고, X좌표가 가장 작은 노드를 반환해야 함
         result_i, result_j, finish_this_time = int(1e9), int(1e9), False
         for item in queue:
-            if arr[item[0]][item[1]] != 0 and arr[item[0]][item[1]] != 9 and scale > arr[item[0]][item[1]]:
+            if (
+                arr[item[0]][item[1]] != 0
+                and arr[item[0]][item[1]] != 9
+                and scale > arr[item[0]][item[1]]
+            ):
                 finish_this_time = True
                 if result_i > item[0]:
                     result_i, result_j = item[0], item[1]
@@ -54,8 +58,16 @@ def bfs(scale, start_i, start_j, visited: list):
                 next_i = i + move[0]
                 next_j = j + move[1]
 
-                if 0 <= next_i < N and 0 <= next_j < N and not visited[next_i][next_j] and \
-                    (arr[next_i][next_j] == 0 or arr[next_i][next_j] == 9 or scale >= arr[next_i][next_j]):
+                if (
+                    0 <= next_i < N
+                    and 0 <= next_j < N
+                    and not visited[next_i][next_j]
+                    and (
+                        arr[next_i][next_j] == 0
+                        or arr[next_i][next_j] == 9
+                        or scale >= arr[next_i][next_j]
+                    )
+                ):
                     queue.append([next_i, next_j])
                     visited[next_i][next_j] = True
 
@@ -66,7 +78,9 @@ def bfs(scale, start_i, start_j, visited: list):
 
 
 while True:
-    search_result, finish_i, finish_j = bfs(shark_scale, start_i, start_j, [[False for _ in range(N)] for _ in range(N)])
+    search_result, finish_i, finish_j = bfs(
+        shark_scale, start_i, start_j, [[False for _ in range(N)] for _ in range(N)]
+    )
 
     # 먹을 수 있는 물고기가 없으면 반복 종료
     if search_result == 0:

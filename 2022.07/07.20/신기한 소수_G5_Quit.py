@@ -4,7 +4,7 @@
 import math
 
 N = int(input())
-limit = 10 ** N - 1  # 소수를 찾는 범위
+limit = 10**N - 1  # 소수를 찾는 범위
 
 
 # N이 2 이상인 경우
@@ -40,7 +40,7 @@ else:
             mini_number = i
             log10 = int(math.log10(mini_number))
             for j in range(1, log10 + 1):
-                if not bool_list[mini_number // (10 ** j)]:
+                if not bool_list[mini_number // (10**j)]:
                     keep_going = False
                     break
             if not keep_going:

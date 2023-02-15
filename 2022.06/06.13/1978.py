@@ -7,7 +7,7 @@ arr = list(map(int, input().split()))  # 소수인지 판별할 수
 result = 0
 
 for num in arr:
-    for i in range(2, num+1):  # 소수는 1과 자신 외의 수로 나누어 떨어지지 않는 수
+    for i in range(2, num + 1):  # 소수는 1과 자신 외의 수로 나누어 떨어지지 않는 수
         if i == num:  # num이 소수일 경우
             result = result + 1
 

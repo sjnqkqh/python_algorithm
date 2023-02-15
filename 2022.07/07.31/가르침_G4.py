@@ -10,8 +10,8 @@ for _ in range(N):
     spell_check = 0b0
 
     for spell in temp:
-        spell_check = spell_check | (1 << (ord(spell) - ord('a')))
-        target_spells.add(ord(spell) - ord('a'))
+        spell_check = spell_check | (1 << (ord(spell) - ord("a")))
+        target_spells.add(ord(spell) - ord("a"))
 
     arr.append(spell_check)
 

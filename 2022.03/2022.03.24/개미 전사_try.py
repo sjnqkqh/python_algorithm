@@ -12,11 +12,11 @@ while i < n - 1:
 
     if stored[i] + stored[i + 2] < stored[i + 1]:
         sum = sum + stored[i + 1]
-        print("index: ", i + 1, end=' ')
+        print("index: ", i + 1, end=" ")
 
     else:
         sum = sum + stored[i + 2]
-        print("index: ", i + 2, end=' ')
+        print("index: ", i + 2, end=" ")
 
     i = i + 2
 

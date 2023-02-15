@@ -19,7 +19,9 @@ while item_queue:
             if dp_dict.get(key + item[0]) is None:
                 dp_dict[key + item[0]] = dp_dict[key] + item[1]
             else:
-                dp_dict[key + item[0]] = max(dp_dict[key + item[0]], dp_dict[key] + item[1])
+                dp_dict[key + item[0]] = max(
+                    dp_dict[key + item[0]], dp_dict[key] + item[1]
+                )
 
 result = sorted(list(dp_dict.items()), key=lambda x: x[1], reverse=True)
 print(0 if len(result) == 0 else result[0][1])

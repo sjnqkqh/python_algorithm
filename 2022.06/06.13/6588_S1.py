@@ -36,7 +36,7 @@ for num in arr:
     for prime in primeNumberList:
         if num - prime in primeNumberList:
             x, y = prime, num - prime
-            print('{} = {} + {}'.format(x + y, x, y))
+            print("{} = {} + {}".format(x + y, x, y))
             break
 
     if conjectureWrong:

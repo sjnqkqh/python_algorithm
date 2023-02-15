@@ -13,7 +13,7 @@ blue_team = []  # 적군 덩어리 배열
 
 
 def dfs(i, j):
-    color = ''  # 탐색할 색
+    color = ""  # 탐색할 색
     queue = deque()
     queue.append([i, j])
     person_cnt = 0
@@ -27,9 +27,12 @@ def dfs(i, j):
             next_i = i + move[0]
             next_j = j + move[1]
 
-            if 0 <= next_i < N and 0 <= next_j < M \
-                and not visited[next_i][next_j] \
-                and arr[next_i][next_j] == color:
+            if (
+                0 <= next_i < N
+                and 0 <= next_j < M
+                and not visited[next_i][next_j]
+                and arr[next_i][next_j] == color
+            ):
                 visited[next_i][next_j] = True
                 queue.append([next_i, next_j])
 
@@ -46,7 +49,7 @@ while keepSearch:
                 visited[i][j] = True
                 color, person_cnt = dfs(i, j)
                 keepSearch = True
-                if color == 'W':
+                if color == "W":
                     white_team.append(person_cnt)
                 else:
                     blue_team.append(person_cnt)
@@ -56,9 +59,9 @@ sameTeamCnt = 0
 enemyTeamCnt = 0
 
 for item in white_team:
-    sameTeamCnt += item ** 2
+    sameTeamCnt += item**2
 
 for item in blue_team:
-    enemyTeamCnt += item ** 2
+    enemyTeamCnt += item**2
 
 print(sameTeamCnt, enemyTeamCnt)
