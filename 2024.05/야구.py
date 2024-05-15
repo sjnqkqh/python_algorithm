@@ -1,89 +1,46 @@
 import itertools
+import sys
 
+input = sys.stdin.readline
+
+result = 0
 n = int(input())
 arr = []
 for _ in range(n):
     arr.append(list(map(int, input().split())))
 
 
-def start(time, _seq, _score, order):
-    plate = [False] * 4
-    out = 0
-    while out < 3:
-        _seq = 0 if _seq == 9 else _seq
-        if _seq == 3:
-            roo = arr[time][0]
-        elif _seq > 3:
-            roo = arr[time][order[_seq - 1]]
-        else:
-            roo = arr[time][order[_seq]]
-
-        if roo == 1:
-            if plate[2]:
-                plate[2] = False
-                _score += 1
-
-            if plate[1]:
-                plate[1] = False
-                plate[2] = True
-
-            if plate[0]:
-                plate[0] = False
-                plate[1] = True
-            plate[0] = True
-
-        elif roo == 2:
-            if plate[2]:
-                plate[2] = False
-                _score += 1
-
-            if plate[1]:
-                plate[1] = False
-                _score += 1
-
-            if plate[0]:
-                plate[0] = False
-                plate[2] = True
-
-            plate[1] = True
-
-        elif roo == 3:
-            if plate[2]:
-                plate[2] = False
-                _score += 1
-
-            if plate[1]:
-                plate[1] = False
-                _score += 1
-
-            if plate[0]:
-                plate[0] = False
-                _score += 1
-
-            plate[2] = True
-        elif roo == 4:
-            for i in range(3):
-                if plate[i]:
-                    plate[i] = False
-                    _score += 1
-            _score += 1
-        else:
-            out += 1
-
-        _seq += 1
-
-    return _seq, _score
-
-
-result = 0
-order_combines = list(itertools.permutations([i for i in range(1, 9)], 8))
-for order in order_combines:
-    order = list(order)
-
+for order in itertools.permutations(range(1, 9), 8):
     seq, score = 0, 0
     for i in range(n):
-        seq, score = start(i, seq, score, order)
+        plate = [False] * 3
+        out = 0
+        while out < 3:
+            seq = 0 if seq == 9 else seq
+            if seq == 3:
+                roo = arr[i][0]
+            elif seq > 3:
+                roo = arr[i][order[seq - 1]]
+            else:
+                roo = arr[i][order[seq]]
 
+            if roo == 1:
+                if plate[2]:
+                    score += 1
+                plate = [True, plate[0], plate[1]]
+            elif roo == 2:
+                score += plate[2] + plate[1]
+                plate = [False, True, plate[0]]
+            elif roo == 3:
+                score += plate[0] + plate[1] + plate[2]
+                plate = [False, False, True]
+            elif roo == 4:
+                score += plate[0] + plate[1] + plate[2] + 1
+                plate = [False, False, False]
+            else:
+                out += 1
+
+            seq += 1
     result = max(result, score)
 
 print(result)
