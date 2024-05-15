@@ -1,4 +1,5 @@
 # https://www.acmicpc.net/problem/14499
+import itertools
 from collections import deque
 
 result = 1E9
@@ -34,25 +35,6 @@ def check_a_group(start):
     return visited
 
 
-def dfs(visited, now):
-    global result
-    for next in arr[now]:
-        if not visited[next]:
-            visited[next] = True
-
-            another_group_sum = get_group_sum(get_rest(visited))
-            if another_group_sum > 0:
-                origin_group = []
-                for i in range(n):
-                    if visited[i]:
-                        origin_group.append(i)
-                now_group_sum = get_group_sum(origin_group)
-                result = min(result, abs(another_group_sum - now_group_sum))
-
-            dfs(visited, next)
-            visited[next] = False
-
-
 def get_group_sum(_rest: list):
     if len(_rest) == 0:
         return -1
@@ -78,6 +60,31 @@ def get_group_sum(_rest: list):
     return _result
 
 
+def bfs(comb):
+    length = 0
+    sum = 0
+
+    start = comb[0]
+    visited = [False] * n
+    visited[start] = True
+    queue = deque([start])
+
+    while queue:
+        now = queue.popleft()
+        sum = sum + man[now]
+        next_arr: list[int] = arr[now]
+
+        for _next in next_arr:
+            if not visited[_next] and _next in comb:
+                visited[_next] = True
+                queue.append(_next)
+
+    for i in range(n):
+        length += visited[i] == True
+
+    return sum, length
+
+
 first_group = check_a_group(0)
 rest = []
 for i in range(n):
@@ -86,10 +93,13 @@ for i in range(n):
 
 # 모든 노드가 한 덩어리일 경우
 if len(rest) == 0:
-    for i in range(n):
-        visited = [False] * n
-        visited[i] = True
-        dfs(visited, i)
+    for i in range(1, n // 2 + 1):
+        combis = list(itertools.combinations(range(n), i))
+        for combi in combis:
+            sum1, v1 = bfs(combi)
+            sum2, v2 = bfs([i for i in range(n) if i not in combi])
+            if v1 + v2 == n:  # 2번의 bfs를 통해 모든 노드가 방문되었는지 확인한다.
+                result = min(result, abs(sum1 - sum2))
     print(result)
     exit()
 
