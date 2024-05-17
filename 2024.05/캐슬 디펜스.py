@@ -17,9 +17,9 @@ for _ in range(n):
 combines = list(itertools.combinations(range(m), 3))
 
 
-def bfs(now_i, now_j, enemy):
-    queue = deque([(now_i, now_j)])
-    visited = [[False] * n for _ in range(n)]
+def bfs(p_i, p_j, enemy):
+    queue = deque([(p_i, p_j)])
+    visited = [[False] * m for _ in range(n)]
     next_queue = deque()
     cnt = 0
 
@@ -29,7 +29,7 @@ def bfs(now_i, now_j, enemy):
             next_i = now_i + _i
             next_j = now_j + _j
 
-            if 0 <= next_i < now_i and 0 <= next_j < m and not visited[next_i][next_j]:
+            if 0 <= next_i < p_i and 0 <= next_j < m and not visited[next_i][next_j]:
                 if enemy[next_i][next_j] == 1:
                     return next_i, next_j
 
@@ -62,6 +62,5 @@ for comb in combines:
                 comb_result += 1
 
         result = max(result, comb_result)
-
 
 print(result)
