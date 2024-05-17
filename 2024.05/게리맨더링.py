@@ -96,9 +96,9 @@ if len(rest) == 0:
     for i in range(1, n // 2 + 1):
         combis = list(itertools.combinations(range(n), i))
         for combi in combis:
-            sum1, v1 = bfs(combi)
-            sum2, v2 = bfs([i for i in range(n) if i not in combi])
-            if v1 + v2 == n:  # 2번의 bfs를 통해 모든 노드가 방문되었는지 확인한다.
+            sum1, length1 = bfs(combi)
+            sum2, length2 = bfs([i for i in range(n) if i not in combi])
+            if length1 + length2 == n:
                 result = min(result, abs(sum1 - sum2))
     print(result)
     exit()
