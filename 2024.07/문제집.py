@@ -1,36 +1,31 @@
-N, M = map(int, input().split())
+import heapq
 
-front_link_dict = {}
-rear_link_dict = {}
+n, m = map(int, input().split())
 arr = []
-for _ in range(M):
+for _ in range(m):
     arr.append(map(int, input().split()))
 
-for i in range(N + 1):
-    front_link_dict[i + 1] = i
-    rear_link_dict[i] = i + 1
+nums = {}
+for i in range(1, n + 1):
+    nums[i] = i
 
 for a, b in arr:
-    temp = front_link_dict[b]
-    front_link_dict[b] = a
-    rear_link_dict[a] = b
-    rear_link_dict[temp] = a
+    nums[a] = nums[b]
+    nums[b] = nums[a] + 1
 
-idx, i = 0, 0
+l = list(nums.items())
+result_dict = {}
+for k, v in l:
+    if result_dict.get(v) is None:
+        result_dict[v] = [k]
+    else:
+        heapq.heappush(result_dict[v], k)
+
+sorted_arrays = list(result_dict.items())
+sorted_arrays.sort()
+
 result = []
+for item in sorted_arrays:
+    result = result + item[1]
 
-
-print(front_link_dict)
-print(rear_link_dict)
-
-## 우선순위 큐로 전환
-while True:
-    if i == N:
-        break
-
-    now = rear_link_dict[idx]
-    i += 1
-    idx = now
-    result.append(now)
-
-print(*result, sep=' ')
+print(result)
