@@ -26,3 +26,10 @@ result.sort()
 
 for item in result:
     print(*item, sep=" ")
+
+# def make_list(temp: list, temp_arr: list, limit: int):
+#     if len(temp) == limit:
+#         return temp
+#     else:
+#         temp.append(temp_arr.pop())
+#         make_list(temp, temp_arr, limit)
