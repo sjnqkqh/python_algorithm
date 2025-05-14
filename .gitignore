@@ -169,3 +169,4 @@ cython_debug/
 # End of https://www.toptal.com/developers/gitignore/api/python2.py
 2022.08/버즈빌/*.py
 2022.08/크레마/*.py
+cote/
