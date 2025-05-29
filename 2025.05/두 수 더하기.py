@@ -1,43 +1,41 @@
-from typing import Optional
-
-
+# Definition for singly-linked list.
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
 
     def __str__(self):
-        return f"ListNode({self.val}, {self.next})"
+        return f"now: {self.val}, next: {self.next}"
+
+
+from typing import Optional
 
 
 def addTwoNumbers(l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
     result = ListNode(0)
-    mod = 0
+    now = result
+    rest = 0
+
     while l1 or l2:
         val1 = l1.val if l1 else 0
         val2 = l2.val if l2 else 0
 
-        temp = val1 + val2 + result.val
-        mod = temp // 10
-        temp = temp % 10
+        sum_result = val1 + val2 + rest
+        rest = sum_result // 10
 
-        l1 = l1.next if l1 is not None else None
-        l2 = l2.next if l2 is not None else None
+        now.next = ListNode(sum_result % 10)
+        now = now.next
 
-        result.next = ListNode(temp)
-        result = result.next
+        l1 = l1.next if l1 else None
+        l2 = l2.next if l2 else None
 
-        if l1 is None and l2 is None and temp == 0 and mod == 1:
-            result.next = ListNode(1, None)
+        if l1 is None and l2 is None and rest == 1:
+            now.next = ListNode(1)
 
-        print(result)
-
-    return result
+    return result.next
 
 
-result = addTwoNumbers(ListNode(2, ListNode(4, ListNode(3, None)))
-                       , ListNode(5, ListNode(6, ListNode(4, None))))
-# print(result)
-# addTwoNumbers(ListNode(9, ListNode(9, ListNode(9, ListNode(9, ListNode(9, ListNode(9, ListNode(9, None)))))))
-#               , ListNode(9, ListNode(9, ListNode(9, ListNode(9, None)))))
-addTwoNumbers(ListNode(0), ListNode(0))
+# print(addTwoNumbers(l1=ListNode(2, ListNode(4, ListNode(3))), l2=ListNode(5, ListNode(6, ListNode(4)))))
+# addTwoNumbers(l1=ListNode(0), l2=ListNode(0))
+print(addTwoNumbers(l1=ListNode(9, ListNode(9, ListNode(9, ListNode(9, ListNode(9, ListNode(9, ListNode(9))))))),
+              l2=ListNode(9, ListNode(9, ListNode(9, ListNode(9))))))
