@@ -29,5 +29,5 @@ def organize_files_by_creation_date(source_dir):
 
 # 사용 예시
 if __name__ == "__main__":
-    source_directory = "./"  # 경로 수정 필요
+    source_directory = "./2025_06"  # 경로 수정 필요
     organize_files_by_creation_date(source_directory)
